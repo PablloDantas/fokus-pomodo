@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Fokus is a Pomodoro timer web application built with vanilla JavaScript (ES6 modules), HTML, and CSS. It implements three timer modes: focus (30 minutes), short break (5 minutes), and long break (15 minutes). The application features background music toggle and dynamic UI updates based on the selected mode.
+Fokus is a Pomodoro timer web application built with vanilla JavaScript (ES6 modules), HTML, and CSS. It implements three timer modes: focus (25 minutes), short break (5 minutes), and long break (15 minutes). The application features background music toggle and dynamic UI updates based on the selected mode.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ The application follows a modular architecture with separation of concerns, usin
 **State Configuration** (`js/data/app-state.js`)
 - Centralized configuration object for all app contexts
 - Exports `APP_CONTEXTS` constants and `stateConfig` object
-- Each context defines: title, strong (subtitle), totalTime (milliseconds)
+- Each context defines: title, strong (subtitle), imageUrl, totalTime (milliseconds)
 
 ### File Structure
 
@@ -56,8 +56,10 @@ The application follows a modular architecture with separation of concerns, usin
 │       └── ui-controller.js # DOM manipulation (UIController class)
 ├── style/
 │   └── styles.css     # CSS with context-based theming via [data-context]
-├── imagens/           # Images for different contexts (focus.png, short-break.png, long-break.png)
-└── sons/              # Audio files
+├── assets/
+│   ├── img/           # Images and icons
+│   │   └── banner/    # Context-specific banner images
+│   └── audio/         # Audio files (background music, sound effects)
 ```
 
 ### Data Flow
@@ -88,3 +90,8 @@ Responsive breakpoints:
 - For local development: `python -m http.server` or Live Server extension
 - All modules use import/export syntax
 - Classes follow single responsibility principle
+
+## Known Issues
+
+- Image paths in `UIController.updateStartPauseButton()` (line 65, 68) use `/img/` instead of `/assets/img/`
+- Typo in class selector: `.app__card-primary-butto-icon` should be `.app__card-primary-button-icon` (ui-controller.js:61)

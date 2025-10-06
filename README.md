@@ -101,4 +101,4 @@ Projeto fictício desenvolvido para fins educacionais.
 
 ## 👥 Créditos
 
-Desenvolvido por Pabllo Dantas e Alura.
+Desenvolvido por Pabllo Dantas, Luan Alves e Alura.

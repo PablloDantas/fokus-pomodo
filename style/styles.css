@@ -44,11 +44,11 @@ h1, h2, h3, h4, h5, h6 {
 .app__logo-figure {
     display: flex;
     justify-content: center;
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .app__section-banner-container {
-    width: 99rem;
+    width: 80rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 0.2rem solid var(--azul-royal);
     background: var(--fundo-card-timer);
     padding: 2.4rem;
-    margin: 8rem 0;
+    margin: 4rem 0 4rem 0;
     width: 59rem;
     max-width: 90%;
 }
@@ -119,11 +119,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-secondary);
     text-align: center;
     font-family: Unbounded;
-    font-size: 12rem;
+    font-size: 8rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin: 3.2rem;
+    margin: 2rem;
     text-align: center;
 }
 

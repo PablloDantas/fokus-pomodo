@@ -56,16 +56,20 @@ export class UIController {
         return button?.getAttribute('data-context');
     }
 
+    getButtonByContext(context) {
+        return document.querySelector(`.app__card-button[data-context="${context}"]`);
+    }
+
     updateStartPauseButton(isRunning) {
         const button = this.elements.startPauseButton;
-        const icon = button.querySelector('.app__card-primary-butto-icon');
+        const icon = button.querySelector('.app__card-primary-button-icon');
         const text = button.querySelector('span');
 
         if (isRunning) {
-            icon.setAttribute('src', '/img/pause.png');
+            icon.setAttribute('src', '/assets/img/pause.png');
             text.textContent = 'Pausar';
         } else {
-            icon.setAttribute('src', '/img/play_arrow.png');
+            icon.setAttribute('src', '/assets/img/play_arrow.png');
             text.textContent = 'Começar';
         }
     }

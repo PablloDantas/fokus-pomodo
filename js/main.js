@@ -1,4 +1,4 @@
-import { stateConfig } from './data/app-state.js';
+import { stateConfig, APP_CONTEXTS } from './data/app-state.js';
 import { Timer } from './modules/timer.js';
 import { AudioPlayer } from './modules/audio-player.js';
 import { UIController } from './modules/ui-controller.js';
@@ -7,13 +7,21 @@ class FokusApp {
     constructor() {
         this.ui = new UIController();
         this.audioPlayer = new AudioPlayer('assets/audio/luna-rise-part-one.mp3');
-        this.currentContext = this.ui.getButtonContext(this.ui.getActiveButton());
+        this.currentContext = APP_CONTEXTS.FOCUS;
 
-        this.initializeTimer();
+        this.initializeApp();
         this.setupEventListeners();
     }
 
-    initializeTimer() {
+    initializeApp() {
+        this.ui.updateContext(this.currentContext);
+
+        const focusButton = this.ui.getButtonByContext(this.currentContext);
+        
+        if (focusButton) {
+            focusButton.classList.add('active');
+        }
+        
         const initialTime = stateConfig[this.currentContext].totalTime;
 
         this.timer = new Timer(
@@ -26,6 +34,7 @@ class FokusApp {
         );
 
         this.ui.updateTimerDisplay(Timer.formatTime(initialTime));
+        this.ui.updateStartPauseButton(false);
     }
 
     setupEventListeners() {

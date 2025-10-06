@@ -1,13 +1,13 @@
 export class Timer {
-    constructor(initialTime, onTick, onComplete) {
+    constructor(initialTime, onTick, onComplete, audioPausePath, audioPlayPath, audioEndPath) {
         this.currentTime = initialTime;
         this.initialTime = initialTime;
         this.intervalId = null;
         this.onTick = onTick;
         this.onComplete = onComplete;
-        this.startAudio = new Audio('/sons/play.wav');
-        this.pauseAudio = new Audio('/sons/pause.mp3');
-        this.endTimerAudio = new Audio('/sons/beep.mp3');
+        this.playAudio = new Audio(audioPlayPath);
+        this.pauseAudio = new Audio(audioPausePath);
+        this.endTimerAudio = new Audio(audioEndPath);
     }
 
     start() {
@@ -17,7 +17,7 @@ export class Timer {
             this.countdown();
         }, 1000);
         
-        this.startAudio.play();
+        this.playAudio.play();
     }
 
     pause() {

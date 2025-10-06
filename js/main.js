@@ -6,7 +6,7 @@ import { UIController } from './modules/ui-controller.js';
 class FokusApp {
     constructor() {
         this.ui = new UIController();
-        this.audioPlayer = new AudioPlayer('/sons/luna-rise-part-one.mp3');
+        this.audioPlayer = new AudioPlayer('assets/audio/luna-rise-part-one.mp3');
         this.currentContext = this.ui.getButtonContext(this.ui.getActiveButton());
 
         this.initializeTimer();
@@ -19,7 +19,10 @@ class FokusApp {
         this.timer = new Timer(
             initialTime,
             (currentTime) => this.handleTimerTick(currentTime),
-            () => this.handleTimerComplete()
+            () => this.handleTimerComplete(),
+            'assets/audio/pause.mp3',
+            'assets/audio/play.wav',
+            'assets/audio/beep.mp3'
         );
 
         this.ui.updateTimerDisplay(Timer.formatTime(initialTime));

@@ -55,8 +55,8 @@ The application follows a modular architecture with separation of concerns, usin
 │       ├── audio-player.js # Audio control (AudioPlayer class)
 │       └── ui-controller.js # DOM manipulation (UIController class)
 ├── style/
-│   └── styles.css     # CSS with context-based theming via [data-contexto]
-├── imagens/           # Images for different contexts (foco.png, short.png, long.png)
+│   └── styles.css     # CSS with context-based theming via [data-context]
+├── imagens/           # Images for different contexts (focus.png, short-break.png, long-break.png)
 └── sons/              # Audio files
 ```
 
@@ -72,9 +72,9 @@ The application follows a modular architecture with separation of concerns, usin
 ### Styling System
 
 CSS uses CSS custom properties with context-based theming:
-- `[data-contexto="foco"]` - Purple gradient background
-- `[data-contexto="short"]` - Green gradient background
-- `[data-contexto="long"]` - Blue gradient background
+- `[data-context="focus"]` - Purple gradient background
+- `[data-context="short-break"]` - Green gradient background
+- `[data-context="long-break"]` - Blue gradient background
 
 Responsive breakpoints:
 - Mobile: max-width 767px

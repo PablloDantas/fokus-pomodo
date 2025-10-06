@@ -14,13 +14,13 @@ export class UIController {
     }
 
     updateContext(context) {
-        this.setHTMLAttribute('data-contexto', context);
+        this.setHTMLAttribute('data-context', context);
         this.updateImage(context);
         this.updateMessage(context);
     }
 
     updateImage(context) {
-        const imagePath = `/imagens/${context}.png`;
+        const imagePath = stateConfig[context].imageUrl;
         this.elements.image.setAttribute('src', imagePath);
     }
 
@@ -53,7 +53,7 @@ export class UIController {
     }
 
     getButtonContext(button) {
-        return button?.getAttribute('data-contexto');
+        return button?.getAttribute('data-context');
     }
 
     updateStartPauseButton(isRunning) {
@@ -62,10 +62,10 @@ export class UIController {
         const text = button.querySelector('span');
 
         if (isRunning) {
-            icon.setAttribute('src', '/imagens/pause.png');
+            icon.setAttribute('src', '/img/pause.png');
             text.textContent = 'Pausar';
         } else {
-            icon.setAttribute('src', '/imagens/play_arrow.png');
+            icon.setAttribute('src', '/img/play_arrow.png');
             text.textContent = 'Começar';
         }
     }
